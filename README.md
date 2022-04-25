@@ -1,2 +1,2 @@
 # Vulnus
-Click [here](beat-game-dev.github.io/Vulnus) to download the game.
+Click [here](https://beat-game-dev.github.io/Vulnus) to download the game.

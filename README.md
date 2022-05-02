@@ -1,2 +1,2 @@
 # Vulnus
-Click [here](https://beat-game-dev.github.io/Vulnus) to download the game.
+Vulnus is a standalone version of Morphox's Sound Space, available on Roblox.

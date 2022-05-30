@@ -39,6 +39,8 @@
 </head>
 <body>
 <script>
+function init()
+{
 var linkBase = "https://github.com/beat-game-dev/Vulnus/releases/latest/download/"
 var element = document.querySelector('.btn-download-os');
 var Name = "Unknown";
@@ -58,6 +60,13 @@ else
 {
 element.parentNode.removeChild(element);
 }
+}
+var readyStateCheckInterval = setInterval(function() {
+    if (document.readyState === "complete") {
+        clearInterval(readyStateCheckInterval);
+        init();
+    }
+}, 10);
 </script>
 <div class="center">
   <img src="https://beat-game-dev.github.io/Vulnus/vulnus%20crop.png">

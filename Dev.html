@@ -11,8 +11,8 @@
       font-family: 'Roboto', sans-serif;
     }
     div.center {
-      width: 480px;
-      height: 320px;
+      width: 500px;
+      height: 340px;
       box-shadow: 0 0 4px 2px;
       position: absolute;
       top:0;
@@ -39,34 +39,35 @@
 </head>
 <body>
 <script>
-function init()
-{
-var linkBase = "https://github.com/beat-game-dev/Vulnus/releases/latest/download/"
-var element = document.querySelector('.btn-download-os');
-var Name = "Unknown";
+  function init()
+  {
+    var linkBase = "https://github.com/beat-game-dev/Vulnus/releases/latest/download/"
+    var element = document.querySelector('.btn-download-os');
+    var Name = "Unknown";
 
-if (navigator.userAgent.indexOf("Win") != -1) Name = "Windows";
-if (navigator.userAgent.indexOf("Mac") != -1) Name = "Mac";
-if (navigator.userAgent.indexOf("Linux") != -1) Name = "Linux";
-if (navigator.userAgent.indexOf("Android") != -1) Name = "Android";
-if (navigator.userAgent.indexOf("like Mac") != -1) Name = "iOS";
+    if (navigator.userAgent.indexOf("Win") != -1) Name = "Windows";
+    if (navigator.userAgent.indexOf("Mac") != -1) Name = "Mac";
+    if (navigator.userAgent.indexOf("Linux") != -1) Name = "Linux";
+    if (navigator.userAgent.indexOf("Android") != -1) Name = "Android";
+    if (navigator.userAgent.indexOf("like Mac") != -1) Name = "iOS";
 
-if (Name != "iOS" && Name != "Unknown")
-{
-element.innerHTML = "<button>Download for " + Name + "</button>"
-element.href = linkBase + (Name == "Windows" && "Vulnus_Beta_Win.zip" || Name == "Mac" && "Vulnus_Beta_Mac.zip" || Name == "Android" && "Vulnus_Beta_Android.apk" || Name == "Linux" && "Vulnus_Beta_Linux.zip" || "404")
-}
-else
-{
-element.parentNode.removeChild(element);
-}
-}
-var readyStateCheckInterval = setInterval(function() {
-    if (document.readyState === "complete") {
-        clearInterval(readyStateCheckInterval);
-        init();
+    if (Name != "iOS" && Name != "Unknown")
+    {
+      element.innerHTML = "<button>Download for " + Name + "</button>"
+      element.href = linkBase + (Name == "Windows" && "Vulnus_Beta_Win.zip" || Name == "Mac" && "Vulnus_Beta_Mac.zip" || Name == "Android" && "Vulnus_Beta_Android.apk" || Name == "Linux" && "Vulnus_Beta_Linux.zip" || "404")
     }
-}, 10);
+    else
+    {
+      element.parentNode.removeChild(element);
+    }
+  }
+  
+  var readyStateCheckInterval = setInterval(function() {
+      if (document.readyState === "complete") {
+          clearInterval(readyStateCheckInterval);
+          init();
+      }
+  }, 10);
 </script>
 <div class="center">
   <img src="https://beat-game-dev.github.io/Vulnus/vulnus%20crop.png">
@@ -75,11 +76,11 @@ var readyStateCheckInterval = setInterval(function() {
     Currently, Vulnus is developed by two community members, kermeet and Hawk.
   </p>
   <b>Download Vulnus for:</b><br>
-  <a class="btn-download-os" href="#"><button>Detecting Operating System</button></a><br>
   <a href="https://github.com/beat-game-dev/Vulnus/releases/latest/download/Vulnus_Beta_Win.zip"><button>Windows</button></a><br>
   <a href="https://github.com/beat-game-dev/Vulnus/releases/latest/download/Vulnus_Beta_Mac.zip"><button>Mac</button></a><br>
   <a href="https://github.com/beat-game-dev/Vulnus/releases/latest/download/Vulnus_Beta_Linux.zip"><button>Linux</button></a><br>
-  <a href="https://github.com/beat-game-dev/Vulnus/releases/latest/download/Vulnus_Beta_Android.apk"><button>Android</button></a>
+  <a href="https://github.com/beat-game-dev/Vulnus/releases/latest/download/Vulnus_Beta_Android.apk"><button>Android</button></a><br>
+  <a class="btn-download-os" href="#"><button style="width: 188px">Detecting Operating System</button></a><br>
 </div>
 </body>
 </html>

@@ -51,7 +51,7 @@ if (navigator.userAgent.indexOf("like Mac") != -1) Name = "iOS";
 
 if (Name)//Name != "iOS" && Name != "Unknown")
 {
-element.innerHTML = 'Download for ' + Name;
+element.innerHTML = "<button>Download for " + Name + "</button>"
 element.href = linkBase + (Name == "Windows" && "Vulnus_Beta_Win.zip" || Name == "Mac" && "Vulnus_Beta_Mac.zip" || Name == "Android" && "Vulnus_Beta_Android.apk" || Name == "Linux" && "Vulnus_Beta_Linux.zip" || "404")
 }
 else

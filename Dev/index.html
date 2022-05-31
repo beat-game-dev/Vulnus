@@ -41,20 +41,40 @@
 <script>
   function init()
   {
-    var linkBase = "https://github.com/beat-game-dev/Vulnus/releases/latest/download/"
-    var Name = "Unknown";
-
+    var log = console.log; // shorter console.log
+    var linkBase = "https://github.com/beat-game-dev/Vulnus/releases/latest/download/"; // Link for downloading the game (no longer used)
+    var Name = "Unknown"; // OS Name
+    var isVaild = true; // Is this a vaild OS
+    
+    // This is OS Detection
     if (navigator.userAgent.indexOf("Win") != -1) Name = "Windows";
-    if (navigator.userAgent.indexOf("Mac") != -1) Name = "Mac";
-    if (navigator.userAgent.indexOf("Linux") != -1) Name = "Linux";
-    if (navigator.userAgent.indexOf("Android") != -1) Name = "Android";
-    if (navigator.userAgent.indexOf("like Mac") != -1) Name = "iOS";
+    else if (navigator.userAgent.indexOf("Mac") != -1) Name = "Mac";
+    else if (navigator.userAgent.indexOf("Linux") != -1) Name = "Linux";
+    else if (navigator.userAgent.indexOf("Android") != -1) Name = "Android";
+    else if (navigator.userAgent.indexOf("like Mac") != -1) Name = "iOS";
+    else isVaild = false;
 
-    if (Name != "iOS" && Name != "Unknown")
+    log(Name);
+    //log(navigator.userAgent);
+
+    if (isVaild)
     {
       var element = document.querySelector("." + Name);
-      if (!element) return; // Element not found
-      element.innerHTML = " &lt; Recommended for You"
+      if (!element) {
+        var elem = document.querySelector(".NA");
+        elem.innerHTML = "Error '" + Name + "' is not a vaild OS in list?";
+        return; // Element not found
+      }
+      element.innerHTML = " &lt; Recommended for you";
+    }
+    else
+    {
+      var element = document.querySelector(".NA");
+      if (!element) {
+        alert("There is no recommended versions for you (OS: " + Name + ")");
+        return; // Element not found
+      }
+      element.innerHTML = "There is no recommended versions for you (OS: " + Name + ")";
     }
   }
   
@@ -76,6 +96,7 @@
   <a href="https://github.com/beat-game-dev/Vulnus/releases/latest/download/Vulnus_Beta_Mac.zip"><button>Mac</button></a><b class="Mac"></b><br>
   <a href="https://github.com/beat-game-dev/Vulnus/releases/latest/download/Vulnus_Beta_Linux.zip"><button>Linux</button></a><b class="Linux"></b><br>
   <a href="https://github.com/beat-game-dev/Vulnus/releases/latest/download/Vulnus_Beta_Android.apk"><button>Android</button></a><b class="Android"></b><br>
+  <b class="NA" style="color: red;"></b>
 </div>
 </body>
 </html>

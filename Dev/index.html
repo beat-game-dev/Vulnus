@@ -48,7 +48,9 @@
     
     // This is OS Detection
     if (navigator.userAgent.indexOf("Win") != -1) Name = "Windows";
-    else if (navigator.userAgent.indexOf("like Mac") != -1) Name = "iOS"; isVaild = false;
+    else if (navigator.userAgent.indexOf("like Mac") != -1) {
+        Name = "iOS"; isVaild = false;
+    }
     else if (navigator.userAgent.indexOf("Mac") != -1) Name = "Mac";
     else if (navigator.userAgent.indexOf("Linux") != -1) Name = "Linux";
     else if (navigator.userAgent.indexOf("Android") != -1) Name = "Android";

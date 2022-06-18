@@ -11,7 +11,8 @@
         overflow: hidden;
       }
       body {
-        background-color: #efefef;
+        background-color: rgb(36,36,36);
+        color: white;
         font-family: 'Roboto', sans-serif;
       }
       div.center {
@@ -64,12 +65,14 @@
         if (isVaild)
         {
           var element = document.querySelector("." + Name);
+          var element2 = document.querySelector("." + Name + "-btn");
           if (!element) {
             var elem = document.querySelector(".NA");
             elem.innerHTML = "Error '" + Name + "' is not a vaild OS in list?";
             return; // Element not found
           }
           element.innerHTML = " &lt; Recommended for you";
+          if (element2) element2.style["font-weight"] = "bold";
         }
         else
         {
@@ -93,13 +96,13 @@
       <img src="https://beat-game-dev.github.io/Vulnus/vulnus%20crop.png">
       <p>
         Vulnus is a standalone version of <b>Morphox's <a href="https://www.roblox.com/games/2677609345/">Sound Space</a></b>.
-        Currently, Vulnus is developed by two community members, kermeet and Hawk.
+        Currently, Vulnus is developed by three community members, kermeet, ObsidianFlight, and Hawk.
       </p>
       <b>Download Vulnus for:</b><br><br>
-      <a href="https://github.com/beat-game-dev/Vulnus/releases/latest/download/Vulnus_Beta_Win.zip"><button>Windows</button></a><b class="Windows"></b><br>
-      <a href="https://github.com/beat-game-dev/Vulnus/releases/latest/download/Vulnus_Beta_Mac.zip"><button>Mac</button></a><b class="Mac"></b><br>
-      <a href="https://github.com/beat-game-dev/Vulnus/releases/latest/download/Vulnus_Beta_Linux.zip"><button>Linux</button></a><b class="Linux"></b><br>
-      <a href="https://github.com/beat-game-dev/Vulnus/releases/latest/download/Vulnus_Beta_Android.apk"><button>Android</button></a><b class="Android"></b><br>
+      <a href="https://github.com/beat-game-dev/Vulnus/releases/latest/download/Vulnus_Beta_Win.zip"><button class="Windows-btn">Windows</button></a><b class="Windows"></b><br>
+      <a href="https://github.com/beat-game-dev/Vulnus/releases/latest/download/Vulnus_Beta_Mac.zip"><button class="Mac-btn">Mac</button></a><b class="Mac"></b><br>
+      <a href="https://github.com/beat-game-dev/Vulnus/releases/latest/download/Vulnus_Beta_Linux.zip"><button class="Linux-btn">Linux</button></a><b class="Linux"></b><br>
+      <a href="https://github.com/beat-game-dev/Vulnus/releases/latest/download/Vulnus_Beta_Android.apk"><button class="Android-btn">Android</button></a><b class="Android"></b><br>
       <b class="NA" style="color: red; position: absolute; bottom: 2%;"></b>
     </div>
   </body>

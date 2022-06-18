@@ -1,104 +1,105 @@
-<html><head>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-    html body {
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-    }
-    body {
-      background-color: #efefef;
-      font-family: 'Roboto', sans-serif;
-    }
-    div.center {
-      width: 500px;
-      height: 350px;
-      box-shadow: 0 0 4px 2px;
-      position: absolute;
-      top:0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      margin: auto;
-      padding: 24px;
-    }
-    a {
-      text-decoration: none;
-    }
-    img {
-      width: 128px;
-      height: 128px;
-      margin-left: 176px;
-      margin-right: 176px;
-    }
-    button {
-      width: 128px;
-      height: 24px;
-    }
-  </style>
-</head>
-<body>
-<script>
-  function init()
-  {
-    var log = console.log; // shorter console.log
-    var linkBase = "https://github.com/beat-game-dev/Vulnus/releases/latest/download/"; // Link for downloading the game (no longer used)
-    var Name = "Unknown"; // OS Name
-    var isVaild = true; // Is this a vaild OS
-    
-    // This is OS Detection
-    if (navigator.userAgent.indexOf("Win") != -1) Name = "Windows";
-    else if (navigator.userAgent.indexOf("like Mac") != -1) {
-        Name = "iOS"; isVaild = false;
-    }
-    else if (navigator.userAgent.indexOf("Mac") != -1) Name = "Mac";
-    else if (navigator.userAgent.indexOf("Linux") != -1) Name = "Linux";
-    else if (navigator.userAgent.indexOf("Android") != -1) Name = "Android";
-    else isVaild = false;
+<html>
+  <head>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+      html body {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+      body {
+        background-color: #efefef;
+        font-family: 'Roboto', sans-serif;
+      }
+      div.center {
+        width: 500px;
+        height: 350px;
+        box-shadow: 0 0 4px 2px;
+        position: absolute;
+        top:0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        padding: 24px;
+      }
+      a {
+        text-decoration: none;
+      }
+      img {
+        width: 128px;
+        height: 128px;
+        margin-left: 176px;
+        margin-right: 176px;
+      }
+      button {
+        width: 128px;
+        height: 24px;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      function init()
+      {
+        var log = console.log; // shorter console.log
+        var linkBase = "https://github.com/beat-game-dev/Vulnus/releases/latest/download/"; // Link for downloading the game (no longer used)
+        var Name = "Unknown"; // OS Name
+        var isVaild = true; // Is this a vaild OS
+        
+        // This is OS Detection
+        if (navigator.userAgent.indexOf("Win") != -1) Name = "Windows";
+        else if (navigator.userAgent.indexOf("like Mac") != -1) {
+            Name = "iOS"; isVaild = false;
+        }
+        else if (navigator.userAgent.indexOf("Mac") != -1) Name = "Mac";
+        else if (navigator.userAgent.indexOf("Linux") != -1) Name = "Linux";
+        else if (navigator.userAgent.indexOf("Android") != -1) Name = "Android";
+        else isVaild = false;
 
-    log(Name);
-    //log(navigator.userAgent);
+        log(Name);
+        //log(navigator.userAgent);
 
-    if (isVaild)
-    {
-      var element = document.querySelector("." + Name);
-      if (!element) {
-        var elem = document.querySelector(".NA");
-        elem.innerHTML = "Error '" + Name + "' is not a vaild OS in list?";
-        return; // Element not found
+        if (isVaild)
+        {
+          var element = document.querySelector("." + Name);
+          if (!element) {
+            var elem = document.querySelector(".NA");
+            elem.innerHTML = "Error '" + Name + "' is not a vaild OS in list?";
+            return; // Element not found
+          }
+          element.innerHTML = " &lt; Recommended for you";
+        }
+        else
+        {
+          var element = document.querySelector(".NA");
+          if (!element) {
+            alert("There is no recommended versions for you (OS: " + Name + ")");
+            return; // Element not found
+          }
+          element.innerHTML = "There is no recommended versions for you (OS: " + Name + ")";
+        }
       }
-      element.innerHTML = " &lt; Recommended for you";
-    }
-    else
-    {
-      var element = document.querySelector(".NA");
-      if (!element) {
-        alert("There is no recommended versions for you (OS: " + Name + ")");
-        return; // Element not found
-      }
-      element.innerHTML = "There is no recommended versions for you (OS: " + Name + ")";
-    }
-  }
-  
-  var readyStateCheckInterval = setInterval(function() {
-      if (document.readyState === "complete") {
-          clearInterval(readyStateCheckInterval);
-          init();
-      }
-  }, 10);
-</script>
-<div class="center">
-  <img src="https://beat-game-dev.github.io/Vulnus/vulnus%20crop.png">
-  <p>
-    Vulnus is a standalone version of <b>Morphox's <a href="https://www.roblox.com/games/2677609345/">Sound Space</a></b>.
-    Currently, Vulnus is developed by two community members, kermeet and Hawk.
-  </p>
-  <b>Download Vulnus for:</b><br><br>
-  <a href="https://github.com/beat-game-dev/Vulnus/releases/latest/download/Vulnus_Beta_Win.zip"><button>Windows</button></a><b class="Windows"></b><br>
-  <a href="https://github.com/beat-game-dev/Vulnus/releases/latest/download/Vulnus_Beta_Mac.zip"><button>Mac</button></a><b class="Mac"></b><br>
-  <a href="https://github.com/beat-game-dev/Vulnus/releases/latest/download/Vulnus_Beta_Linux.zip"><button>Linux</button></a><b class="Linux"></b><br>
-  <a href="https://github.com/beat-game-dev/Vulnus/releases/latest/download/Vulnus_Beta_Android.apk"><button>Android</button></a><b class="Android"></b><br>
-  <b class="NA" style="color: red; position: absolute; bottom: 2%;"></b>
-</div>
-</body>
+      
+      var readyStateCheckInterval = setInterval(function() {
+          if (document.readyState === "complete") {
+              clearInterval(readyStateCheckInterval);
+              init();
+          }
+      }, 10);
+    </script>
+    <div class="center">
+      <img src="https://beat-game-dev.github.io/Vulnus/vulnus%20crop.png">
+      <p>
+        Vulnus is a standalone version of <b>Morphox's <a href="https://www.roblox.com/games/2677609345/">Sound Space</a></b>.
+        Currently, Vulnus is developed by two community members, kermeet and Hawk.
+      </p>
+      <b>Download Vulnus for:</b><br><br>
+      <a href="https://github.com/beat-game-dev/Vulnus/releases/latest/download/Vulnus_Beta_Win.zip"><button>Windows</button></a><b class="Windows"></b><br>
+      <a href="https://github.com/beat-game-dev/Vulnus/releases/latest/download/Vulnus_Beta_Mac.zip"><button>Mac</button></a><b class="Mac"></b><br>
+      <a href="https://github.com/beat-game-dev/Vulnus/releases/latest/download/Vulnus_Beta_Linux.zip"><button>Linux</button></a><b class="Linux"></b><br>
+      <a href="https://github.com/beat-game-dev/Vulnus/releases/latest/download/Vulnus_Beta_Android.apk"><button>Android</button></a><b class="Android"></b><br>
+      <b class="NA" style="color: red; position: absolute; bottom: 2%;"></b>
+    </div>
+  </body>
 </html>
